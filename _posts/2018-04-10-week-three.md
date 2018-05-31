@@ -1,6 +1,6 @@
 ---
-title: Third Post
-author: Chris
+title: Week Three
+author: Fawaz
 layout: post
 icon: fa-lightbulb-o
 ---
