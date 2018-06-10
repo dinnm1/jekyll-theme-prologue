@@ -2,6 +2,7 @@
 title: Week Seven
 author: Fawaz
 layout: post
+order: 7
 ---
 The teams and projects were announced today.
 

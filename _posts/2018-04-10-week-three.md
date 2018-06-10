@@ -3,6 +3,7 @@ title: Week Three
 author: Fawaz
 layout: post
 icon: fa-lightbulb-o
+order: 3
 ---
 This week in class we came up with some user stories using the notes from the meeting we had last week. We also designed the database model, we had to go through a few different possible designs to get something that was somewhat accurate.
 

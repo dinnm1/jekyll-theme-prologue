@@ -2,6 +2,7 @@
 title: Week Eight
 author: Fawaz
 layout: post
+order: 8
 ---
 The teams and projects were announced today.
 

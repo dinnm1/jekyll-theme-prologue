@@ -1,9 +1,12 @@
 ---
-# You don't need to edit this file, it's empty on purpose.
-# Edit theme's home layout instead if you wanna make some changes
-# See: https://jekyllrb.com/docs/themes/#overriding-theme-defaults
-layout: home
-title: Reports
-icon: fa-home
-order: 1
+layout: page
+title: About
 ---
+
+For my Software Engineering paper, four other classmates and I have been assigned to the Sea Lions Database team as part of our main project.
+This portfolio will consist of a technical report(group), timeline(individual), professional proficiency (individual) and technical proficiency(individual) reports.
+
+My updated CV will also be included in this portfolio.
+
+
+[jekyll-organization]: https://github.com/jekyll
