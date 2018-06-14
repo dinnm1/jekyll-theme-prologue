@@ -4,7 +4,5 @@ author: Fawaz
 layout: post
 order: 7
 ---
-The teams and projects were announced today.
 
-Connor, George, Isabel, Michael and myself were assigned to the Sea Lions database team. Once the team got together, we began discussing potential platform ideas for the database.
-While we were waiting to speak to Martin, we thought out some questions to ask him, to understand the essence of the project and requirements.
+This week we had to completely switch databases to the Firestore option in Firebase as the current database system does not offer good filtering options. We met with Jordana to show her the current database functionality. Found out more things we need to add and got more user stories to add to the back-log. We explained the agile process to her, which she understood quite well. Showed off some design prototypes for the web app.

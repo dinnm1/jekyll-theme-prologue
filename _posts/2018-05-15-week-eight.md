@@ -4,7 +4,4 @@ author: Fawaz
 layout: post
 order: 8
 ---
-The teams and projects were announced today.
-
-Connor, George, Isabel, Michael and myself were assigned to the Sea Lions database team. Once the team got together, we began discussing potential platform ideas for the database.
-While we were waiting to speak to Martin, we thought out some questions to ask him, to understand the essence of the project and requirements.
+This week, we assigned ourselves to user stories. George and myself were working on the design user story, so we had decided to spend time this week doing some research on what CSS framework we could use. From the Bootstrap and Foundation options, we went with Foundation and took this week to learn and experiment with this framework as it was new to us. While the others were working on updating the database so that they can work on the filtering user story.
