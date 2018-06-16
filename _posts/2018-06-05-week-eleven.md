@@ -1,0 +1,10 @@
+---
+title: Week Eleven
+author: Fawaz
+layout: post
+---
+
+This week, Connor and I created a new branch where we began mergin the css and with the new functionality that has been worked on. We also began working on the display, where we created a table with basic info and made each column clickable, that would pop up with a modal that had full information on the sea lion. Later this week, I worked on the javascript file to dynamically create the table and the divs required to allow the data to be displayed in a grid format. Michael also helped with getting the data to appear. We then had to focused on merging the branches back to the development branch.
+
+<img src="{{ 'assets/images/week-11-1.png' | relative_url }}" alt="week-11-1" style=""/>
+<img src="{{ 'assets/images/week-11-2.png' | relative_url }}" alt="week-11-2" style=""/>
