@@ -1,7 +1,0 @@
----
-title: Week Four And Five
-author: Fawaz
-layout: post
-order: 4
----
-Holiday - I was unable to get any work done during this time. Was going through a hard time, in the hospital and under medication for most of this week and the next. Was not in the state of mind to do any work. I let the team know about my situation so that it wans't a complete surprise to them that I haven't done any work. Hosting for the web app was set up and login created on Firebase.
