@@ -4,11 +4,220 @@ icon: fa-th
 order: 3
 ---
 
-<h2></h2>
+<h3 align="left">Foundation -</h3><br>
+<p>Introducing Foundation to the project is something I would take credit for. I did research on it to make sure it was within our scope of learning and conveyed the advantages and usability of the framework to the rest of the team. The first implementation was originally planned to be done together with George and I, but he was unavailable at the time. So I took the first initiative and implemented and released the first bit of Foundation CSS for our website’s only functional page.</p>
+<p><b class="bold">Grid:</b>
+The page I was going to work on, was laid out in a format similar to a table by Michael. So I decided to implement a grid system to lay out all the inputs and buttons in an appropriate and aesthetic manner. Within a couple of hours of watching and reading Foundations xy grid <a href="https://foundation.zurb.com/sites/docs/xy-grid.html">tutorial</a>, and experimenting with it, I was able to concoct a grid that consists of enough columns and works with our fields.</p>
+<p><b class="bold">Code (partial):</b></p>
+<pre><code align="left">&lt;div class="grid-container"&gt;
+    &lt;div class="grid-x grid-padding-x"&gt;
+        &lt;div class="large-12 medium-12 cell"&gt;
+            &lt;div class="callout"&gt;
+                &lt;img src="images/logo.jpg" height="100" width="100" class="float-left" id="logo"&gt;
+                &lt;h1 id="title"&gt;ADD A SEA LION&lt;/h1&gt;    
+                &lt;div class="large-4 medium-4 cell"&gt;
+                    &lt;h3&gt;Details&lt;/h3&gt;
+                    &lt;form&gt;
+                        &lt;fieldset&gt;
+                            Inputs....
+                        &lt;/fieldset&gt;
+                    &lt;/form&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+<p><b class="bold">Before:</b></p>
+<img src="{{ 'assets/images/before.png' | relative_url }}" alt="before css" style="width: 77%; display: flex;
+justify-content: space-between;"/><br>
+<p><b class="bold">After:</b></p>
+<img src="{{ 'assets/images/after.png' | relative_url }}" alt="after css" style="width: 77%; display: flex;
+justify-content: space-between;"/><br>
+
+<p><b class="bold">Navigation:</b>
+George, Connor and I were experimenting on an effective design in class, however, that did not pan out. Later that week Connor attempted to create a navigation from scratch using the classes available in Foundation. It was functional, however incomplete and when I went into to work on it, it was extremely difficult to understand the code. To unburden future developers of any grief, I decided to re-do the navigation. I went with the simple route and used <a href="https://foundation.zurb.com/building-blocks/blocks/hover-underline-menu.html">one of the</a> many <a href="https://foundation.zurb.com/building-blocks/navigation.html">navigation building blocks</a> available on the Foundation website and referenced that in the code for future devs and added the respective links to the pages on our website.</p>
+<pre><code align="left">
+<b class="bold">HTML -</b>
+&lt;nav class="hover-underline-menu" data-menu-underline-from-center&gt;
+&lt;h1 class="menu title align-center"&gt;NZSLT Database&lt;/h1&gt;
+&lt;ul class="menu align-center"&gt;
+  &lt;li&gt;&lt;a href="search_sealion.html"&gt;Search&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href="add_sealion.html"&gt;Add Sea Lion&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href="display_all_sea_lion.html"&gt;Display All&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/nav&gt;
+
+<b class="bold">JS -</b>
+$("[data-menu-underline-from-center] a").addClass("underline-from-center");
+
+<b class="bold">CSS -</b>
+$menu-underline-from-center-bg: #2C3840;
+$menu-underline-from-center-border-thickness: 0.125rem;
+
+.hover-underline-menu {
+  width: 100%;
+
+  .menu {
+    background-color: $menu-underline-from-center-bg;
+
+    a {
+      color: $white;
+      padding: 1.2rem 1.5rem;
+    }
+
+    .underline-from-center {
+      position: relative;
+
+      &::after {
+        content: "";
+        position: absolute;
+        top: calc(100% - #{$menu-underline-from-center-border-thickness});
+        border-bottom: $menu-underline-from-center-border-thickness solid $white;
+        left: 50%;
+        right: 50%;
+        transition: all 0.5s ease;
+      }
+
+      &:hover::after {
+        left: 0;
+        right: 0;
+        transition: all 0.5s ease;
+      }
+    }
+  }
+}
+</code></pre>
+<p><b class="bold">Output:</b></p>
+<img src="{{ 'assets/images/nav.png' | relative_url }}" alt="navigation" style="display: flex;
+justify-content: space-between;"/><br>
+
+<p><b class="bold">General CSS:</b>
+One of the CSS snippets I used that is outside the bounds of the Foundation framework was for the checkbox design used on our website. We had to use checkboxes to allow the user to select the pattern for the clipped toes of the sea lions. When creating the first design, I ventured out looking for a simple and elegant looking checkbox designs. <a href="https://codepen.io/jpI/pen/gWJRpb?editors=1011">One of them</a> in particular caught my eye, it almost seemed as if it was designed for our exact use of checkboxes. It had characters within the checkboxes, which immediately made me think of using this template with numbers within the checkboxes to help the user differentiate between the toes one to five on both feet.
+<p><b class="bold">Code<b></p>
+<pre><code align="left"><b class="bold">HTML -</b>
+&lt;div class="select-size"&gt;
+    &lt;h4&gt;Left Clipped&lt;/h4&gt;   
+    &lt;!-- Inputs/checkboxes are hidden in CSS, displaying labels --&gt;
+    &lt;input type="checkbox" id="left1" name="left" value="1" &gt; 
+    &lt;input type="checkbox" id="left2" name="left" value="2" &gt;  
+    &lt;input type="checkbox" id="left3" name="left" value="3" &gt;  
+    &lt;input type="checkbox" id="left4" name="left" value="4" &gt;  
+    &lt;input type="checkbox" id="left5" name="left" value="5" &gt;        
+
+    &lt;input type="checkbox" id="right1" name="right" value="1" &gt; 
+    &lt;input type="checkbox" id="right2" name="right" value="2" &gt; 
+    &lt;input type="checkbox" id="right3" name="right" value="3" &gt;  
+    &lt;input type="checkbox" id="right4" name="right" value="4" &gt;  
+    &lt;input type="checkbox" id="right5" name="right" value="5" &gt;  
+
+    &lt;label class="toe-label" for="left1"&gt;1&lt;/label&gt;
+    &lt;label class="toe-label" for="left2"&gt;2&lt;/label&gt;
+    &lt;label class="toe-label" for="left3"&gt;3&lt;/label&gt;
+    &lt;label class="toe-label" for="left4"&gt;4&lt;/label&gt;
+    &lt;label class="toe-label" for="left5"&gt;5&lt;/label&gt;
+    &lt;br&gt;
+    &lt;h4&gt;Right Clipped&lt;/h4&gt;
+    &lt;label class="toe-label" for="right1"&gt;1&lt;/label&gt;
+    &lt;label class="toe-label" for="right2"&gt;2&lt;/label&gt;
+    &lt;label class="toe-label" for="right3"&gt;3&lt;/label&gt;
+    &lt;label class="toe-label" for="right4"&gt;4&lt;/label&gt;
+    &lt;label class="toe-label" for="right5"&gt;5&lt;/label&gt;
+&lt;/div&gt;
+
+<b class="bold">JS -</b>
+&lt;script&gt;
+    $("body").on("click", "label", function(e) {
+    var getValue = $(this).attr("for");
+    var goToParent = $(this).parents(".select-size");
+    var getInputRadio = goToParent.find("input[id = " + getValue + "]");
+    console.log(getInputRadio.attr("id"));  
+    });
+&lt;/script&gt;
+
+<b class="bold">CSS -</b>
+.select-size  input
+{
+    display: none;
+}
+  
+label
+{
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    border: 1px solid #ddd;
+    line-height: 50px;
+    cursor: pointer
+}
+  
+#small:checked ~ label[for="small"],
+#medium:checked ~ label[for="medium"],
+#large:checked ~ label[for="large"],
+#x-large:checked ~ label[for="x-large"],
+#xx-large:checked ~ label[for="xx-large"]
+{
+    background: #999;
+    color: #fff;
+}
+</code></pre>
+<p><b class="bold">Output:</b>
+<img src="{{ 'assets/images/checkbox.png' | relative_url }}" alt="before css" style="display: flex;
+justify-content: space-between;"/><br>
+
+Having done a lot of CSS in the past, only now have I learned how to inherit css from other classes, this was very important as I needed to be able to customise the CSS to suit specific elements, at the same time working with Foundation CSS. For example, here I am extending the button class from Foundation and adding my own CSS to the element this class belongs to:</p>
+<pre><code align="left">.button.search
+{
+    float: right;
+    width: 40%;
+}
+</code></pre>
+<p>As we were creating the modals and data display for every sea lion dynamically using multiple different functions, some buttons had to be created and appended before other elements. However, the team wanted certain buttons to appear at the very bottom of each column. To accomplish this I would normal use this CSS:</p>
+<pre><code align="left">.button.submit_update
+{
+    position: absolute;
+    bottom: 0;
+}
+</code></pre>
+<p>However, that would place the button at the bottom right of the screen, whereas I needed it to be place at the bottom right of the div. It was extremely difficult to find any information on doing this within a div. Eventually I found this <a href="https://forums.asp.net/post/5821009.aspx">post</a> that explained that I needed to add a relative position for the div that the button belongs to, like this:</p>
+<pre><code align="left">.column_one
+{
+    position: relative;
+}
+
+.button.submit_update
+{
+    position: absolute;
+    bottom: 0;
+}
+</code></pre>
+<br>
+
+<h3 align="left">Javascript -</h3><br>
+
+<p><b class="bold">Table:</b>
+dynamically create....</p>
+<p><b class="bold">Modal:</b>
+create elements... grid... get and insert data... </p>
+<p><b class="bold">Checkbox:</b>
+intergrating checkbox css and the script into javascript... </p>
+<br>
+
+<h3 align="left">Firestore -</h3><br>
+<p><b class="bold">Retrieving data:</b></p>
+<br>
+
+<h3 align="left">Gitlab -</h3><br>
+<p><b class="bold">Branches:</b></p>
+<br>
 
 
-
-
+<br><br><br><br><br><br><br>
 learning a new technology
 implementing a program design that furthers the project
 deploying or installing dependencies, libraries or other technologies into your project
+
+
+
+
