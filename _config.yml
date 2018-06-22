@@ -36,7 +36,7 @@ description: >- # this means to ignore newlines until "baseurl:"
   This is the evidence portfolio for my Software Engineering project.
 author: Fawaz Dinnunhan
 email: dinnm1@student.op.ac.nz
-avatar: assets/images/avatar.jpg
+avatar: assets/images/avatar.png
 
 # You'll want to customize url and baseurl for your own site:
 baseurl: "/jekyll-theme-prologue/" # the subpath of your site, e.g. /blog

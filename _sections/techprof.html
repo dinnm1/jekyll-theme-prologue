@@ -196,7 +196,7 @@ Having done a lot of CSS in the past, only now have I learned how to inherit css
 
 <h3 align="left">Javascript -</h3><br>
 <p><b class="bold">Table:</b>
-Until this project, I've never created an element in Javascript. I originally worked on this with Connor to get the display going as he was the one that thought of using a table with click-able rows that pop open a modal and also introduced the code for it. However, for the purposes of displaying each sea lion's data individually, I had to dynamically create each element for a table and each div and the corresponding class names required to allow the intergration of Foundation CSS and GRID to work with the original Modal code to get our desired output, it was extremely time consuming as each input had to be created individually in order to be appended and to apply CSS, thinking back now, our Javascrip overall could have been a lot cleaner and well laid out if we were to have used a framework such as <b class="bold">ReactJS:</b></p>
+Until this project, I've never created an element in Javascript. I originally worked on this with Connor to get the display going as he was the one that thought of using a table with click-able rows that pop open a modal and also introduced the code for it. However, for the purposes of displaying each sea lion's data individually, I had to dynamically create each element for a table and each div and the corresponding class names required to allow the integration of Foundation CSS and GRID to work with the original Modal code to get our desired output, it was extremely time consuming as each input had to be created individually in order to be appended and to apply CSS, thinking back now, our Javascript overall could have been a lot cleaner and well laid out if we were to have used a framework such as <b class="bold">ReactJS:</b></p>
 <pre><code align="left"><b class="bold">Table JS:</b>
 function createTable(sealion)
 {
@@ -239,7 +239,6 @@ function createTable(sealion)
 
 <b class="bold">Card JS:</b>
 var sealion = sealionsMap.get(key);
-
 
 var containerDiv = document.createElement
 //Get ref to display div and create elements
@@ -326,7 +325,6 @@ var clipped_title = document.createElement("p");
 clipped_title.innerHTML = "Clipped toes:";
 col3cell.appendChild(clipped_title);
 
-
 for (let key in sealion) 
 {
     if(sealion[key] == true)
@@ -369,28 +367,75 @@ col4cell.appendChild(button);
 
 }
 </code></pre>
-<p><b class="bold">Table:</b>
-dynamically create....</p>
-<p><b class="bold">Modal:</b>
-create elements... grid... get and insert data... </p>
 <p><b class="bold">Checkbox:</b>
-intergrating checkbox css and the script into javascript... </p>
-<br>
+In the final stages of the project, when we were working on cleaning up the website, we decided the way we were displaying clipped toes in the modal was not very elegant. So I had to spend a lot of time recreating the checkbox design all in the JavaScript but only with the label so that is not click-able. It was very simple but it took a lot of time and messing around with to get it working as it was someone else’s un-documented code snippet that I had to completely re-create in JavaScript:</p>
+<pre><code align="left">var leftkeys = ["left1", "left2", "left3", "left4", "left5"];
+var rightkeys = ["right1", "right2", "right3", "right4", "right5"];
+
+var leftTitle = document.createElement("p");
+leftTitle.innerHTML = "Left Clipped:";
+col3cell.appendChild(leftTitle);
+
+for (var i = 0; i < leftkeys.length; i++)
+{        
+    if(sealion[leftkeys[i]] == true)
+    {            
+        appendLabel = createLabel(i+1, true);
+    }
+    else if (sealion[leftkeys[i]] == false)
+    {
+        appendLabel = createLabel(i+1, false);
+    }
+    col3cell.appendChild(appendLabel);
+}
+
+function createLabel(num, clipped)
+{   
+    let label = document.createElement('label');
+    if(clipped == true)
+    {
+        label.className = "update-clipped toe";
+    }
+    else
+    {
+        label.className = "toe-label toe";
+    }
+    label.innerHTML = num;
+    
+    return label;
+}
+</code></pre>
+<p>Before it used to just output some text saying which toes have been clipped and this is what it looks like after I added the checkbox labels functions.<br><b class="bold">Output:</b></p>
+<img src="{{ 'assets/images/beforemodal.png' | relative_url }}" alt="navigation" style="display: flex;
+justify-content: space-between;"/><br>
 
 <h3 align="left">Firestore -</h3><br>
-<p><b class="bold">Retrieving data:</b></p>
-<br>
+<p>Firestore is a flexible and scalable NoSQL cloud database that we used to store and sync data for our sea lions. This was the first time I have had any experience with a NOSQL database, so it was quite interesting to see the different ways of storing and retrieving data. The database model was completely different to what we’re typically used to, but it seemed to work for the case of the sea lions as there was no relationships needed, so we went with it.</p>
+<p><b class="bold">Retrieving data:</b>
+For my part in displaying the sea lion data, I had to learn how to retrieve data from the Firestore database:</p>
+<pre><code align="left">function displaySeaLionTbl()
+{   
+    db.collection("Sea Lions").get().then(function(document) 
+    {        
+        // Store each sea lion in a map to refer to later
+        document.forEach(function(data)
+        {
+            sealionsMap.set(data.id, data.data());
+        });
+
+        document.forEach(createTable);        
+    }); 
+}
+function displaySeaLion()
+{   
+    db.collection("Sea Lions").get().then(function(document) 
+    {        
+        document.forEach(createCard);
+        console.log(document);
+    }); 
+}</code></pre>
 
 <h3 align="left">Gitlab -</h3><br>
-<p><b class="bold">Branches:</b></p>
-<br>
-
-
-<br><br><br><br><br><br><br>
-learning a new technology
-implementing a program design that furthers the project
-deploying or installing dependencies, libraries or other technologies into your project
-
-
-
-
+<p>During this project is when I really learnt how to use Gitlab, especially for collaborating with others. It's one of the best things I could have learned in any class, it's extremely useful and I'm glad I was able to get a better understanding of it in this class.</p>
+<p><b class="bold">Branches:</b>
+My first ever branch I created was for this project. I learned how to create merge requests, resolve conflicts and my life has been a lot easier because of this. In total I created 4 of the 18 branches for our project. Only in the end did we realize we weren't pushing enough to the main branch which caused a lot of conflicts, once we sorted that out, we were regularly pulling and pushing from the main branch to our own.</p>
